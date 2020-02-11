@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --verbose --coverage",
-    "lint": "eslint src __tests__ storybook --ext .js,.ts,.tsx",
+    "lint": "eslint . --ext .js,.ts,.tsx",
     "android:adb": "adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
@@ -41,7 +41,17 @@
     "ts-jest": "^25.2.0",
     "typescript": "^3.7.5"
   },
-  "jest": {
-    "preset": "react-native"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "test"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "prettier --write",
+      "eslint --fix --max-warnings 0 --ext .ts,.tsx,.js",
+      "git add"
+    ]
   }
 }

@@ -1,4 +1,4 @@
-const jestPreset = require('@testing-library/react-native/jest-preset');
+const jestPreset = require('@testing-library/react-native/jest-preset')
 
 module.exports = {
   preset: '@testing-library/react-native',
@@ -23,4 +23,4 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   cacheDirectory: './jest/cache',
-};
+}
