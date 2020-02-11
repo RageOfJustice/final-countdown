@@ -12,8 +12,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext",
-    "baseUrl": "."
+    "target": "esnext"
   },
   "include": [
     "__tests__",
@@ -22,9 +21,6 @@
     "storybook",
     "babel.config.js",
     "metro.config.js",
-    "jest.config.js",
-    "TestNavigator.tsx"
-  ],
-  // TODO: потом удалить
-  "exclude": ["src/screens/CourseScreen/testcourse"]
+    "jest.config.js"
+  ]
 }
