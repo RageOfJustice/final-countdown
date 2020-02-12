@@ -1,4 +1,7 @@
+import React from 'react'
 import { getStorybookUI, configure } from '@storybook/react-native'
+import { ThemeProvider } from 'src/styled-components'
+import theme from 'src/theme'
 
 // import stories
 configure(() => {
@@ -9,6 +12,13 @@ configure(() => {
 // To find allowed options for getStorybookUI
 const StorybookUIRoot = getStorybookUI({
   onDeviceUI: true,
+  disableWebsockets: true,
 })
 
-export default StorybookUIRoot
+const StorybookScreen = () => (
+  <ThemeProvider theme={theme}>
+    <StorybookUIRoot />
+  </ThemeProvider>
+)
+
+export default StorybookScreen

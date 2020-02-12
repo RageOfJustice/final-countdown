@@ -12,7 +12,8 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": "."
   },
   "include": [
     "__tests__",
