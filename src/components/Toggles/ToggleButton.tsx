@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ToggleButton: React.FC<Props> = ({ isActive, title, onPress }) => (
-  <Wrapper onPress={onPress} isActive={isActive}>
+  <Wrapper onPress={onPress} isActive={isActive} testID="toggleButton">
     <Text isActive={isActive}>{title}</Text>
   </Wrapper>
 )

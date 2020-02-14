@@ -3,7 +3,7 @@ const jestPreset = require('@testing-library/react-native/jest-preset')
 module.exports = {
   preset: '@testing-library/react-native',
   setupFiles: jestPreset.setupFiles,
-  setupFilesAfterEnv: ['./jest/setup.js'],
+  setupFilesAfterEnv: ['./jest/setup.ts'],
   transform: {
     '^.+\\.(js|jsx)?$': '<rootDir>/node_modules/babel-jest',
     '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest',

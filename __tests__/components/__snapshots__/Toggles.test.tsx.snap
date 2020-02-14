@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleButton renders correclty 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "borderColor": "#2d3436",
+        "borderWidth": 1,
+        "justifyContent": "center",
+        "paddingBottom": 8,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 8,
+      },
+    ]
+  }
+  testID="toggleButton"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#2d3436",
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    title
+  </Text>
+</TouchableOpacity>
+`;
+
+exports[`ToggleButton renders correclty in active state 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  isActive={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#636e72",
+        "borderColor": "#2d3436",
+        "borderWidth": 1,
+        "justifyContent": "center",
+        "paddingBottom": 8,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 8,
+      },
+    ]
+  }
+  testID="toggleButton"
+>
+  <Text
+    isActive={true}
+    style={
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 14,
+        },
+      ]
+    }
+  >
+    title
+  </Text>
+</TouchableOpacity>
+`;
+
+exports[`Toggles renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": -2,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 2,
+        },
+      ]
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      isActive={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#636e72",
+            "borderColor": "#2d3436",
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "paddingBottom": 8,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="toggleButton"
+    >
+      <Text
+        isActive={true}
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        1X
+      </Text>
+    </TouchableOpacity>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 2,
+        },
+      ]
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      isActive={false}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "#2d3436",
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "paddingBottom": 8,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="toggleButton"
+    >
+      <Text
+        isActive={false}
+        style={
+          Array [
+            Object {
+              "color": "#2d3436",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        1.5X
+      </Text>
+    </TouchableOpacity>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingHorizontal": 2,
+        },
+      ]
+    }
+  >
+    <TouchableOpacity
+      activeOpacity={0.2}
+      isActive={false}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderColor": "#2d3436",
+            "borderWidth": 1,
+            "justifyContent": "center",
+            "paddingBottom": 8,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="toggleButton"
+    >
+      <Text
+        isActive={false}
+        style={
+          Array [
+            Object {
+              "color": "#2d3436",
+              "fontSize": 14,
+            },
+          ]
+        }
+      >
+        2X
+      </Text>
+    </TouchableOpacity>
+  </View>
+</View>
+`;

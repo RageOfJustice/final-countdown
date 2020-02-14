@@ -17,6 +17,7 @@
   },
   "include": [
     "__tests__",
+    "jest/",
     "src",
     "./index.js",
     "storybook",
