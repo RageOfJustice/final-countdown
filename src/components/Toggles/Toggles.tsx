@@ -14,6 +14,7 @@ interface Props {
   activeIndex?: number
 }
 
+// FIXME: поправить нажатие на активный индекс
 const Toggles: React.FC<Props> = ({ values, onPress, activeIndex = 0 }) => {
   return (
     <Wrapper>

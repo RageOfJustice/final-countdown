@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountdownForm renders correctly in start mode 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#2d3436",
+        },
+      ]
+    }
+  >
+    Countdown:
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    editable={true}
+    keyboardType="decimal-pad"
+    placeholder="Minutes"
+    placeholderTextColor="#b2bec3"
+    rejectResponderTermination={true}
+    selectionColor="#636e72"
+    style={
+      Array [
+        Object {
+          "borderColor": "#2d3436",
+          "borderWidth": 1,
+          "color": "#2d3436",
+          "marginHorizontal": 8,
+          "opacity": 1,
+          "paddingBottom": 8,
+          "paddingLeft": 4,
+          "paddingRight": 4,
+          "paddingTop": 8,
+          "width": 100,
+        },
+      ]
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <TouchableOpacity
+    activeOpacity={0.2}
+    disabled={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#00cec9",
+          "opacity": 0.6,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+        },
+      ]
+    }
+    testID="controlButton"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+          },
+        ]
+      }
+    >
+      Start
+    </Text>
+  </TouchableOpacity>
+</View>
+`;
+
+exports[`CountdownForm renders correctly in start stop 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#2d3436",
+        },
+      ]
+    }
+  >
+    Countdown:
+  </Text>
+  <TextInput
+    allowFontScaling={true}
+    editable={false}
+    keyboardType="decimal-pad"
+    placeholder="Minutes"
+    placeholderTextColor="#b2bec3"
+    rejectResponderTermination={true}
+    selectionColor="#636e72"
+    style={
+      Array [
+        Object {
+          "borderColor": "#2d3436",
+          "borderWidth": 1,
+          "color": "#2d3436",
+          "marginHorizontal": 8,
+          "opacity": 0.6,
+          "paddingBottom": 8,
+          "paddingLeft": 4,
+          "paddingRight": 4,
+          "paddingTop": 8,
+          "width": 100,
+        },
+      ]
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <TouchableOpacity
+    activeOpacity={0.2}
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#00cec9",
+          "opacity": 1,
+          "paddingBottom": 8,
+          "paddingLeft": 8,
+          "paddingRight": 8,
+          "paddingTop": 8,
+        },
+      ]
+    }
+    testID="controlButton"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+          },
+        ]
+      }
+    >
+       Stop
+    </Text>
+  </TouchableOpacity>
+</View>
+`;
