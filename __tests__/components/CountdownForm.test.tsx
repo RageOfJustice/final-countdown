@@ -33,6 +33,7 @@ describe('CountdownForm', () => {
 
     fireEvent.press(button)
     expect(onPress).toHaveBeenCalledWith(12)
+    getByDisplayValue('')
   })
 
   it('behaves right in stop mode', () => {

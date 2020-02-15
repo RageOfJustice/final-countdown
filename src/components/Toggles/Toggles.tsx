@@ -3,14 +3,16 @@ import styled from 'src/styled-components'
 
 import ToggleButton from './ToggleButton'
 
-interface ToggleValue {
+export interface ToggleValue {
   title: string
   value: number
 }
 
+export type TogglePressHandler = (value: ToggleValue, index: number) => void
+
 interface Props {
   values: ToggleValue[]
-  onPress?: (value: ToggleValue, index: number) => void
+  onPress?: TogglePressHandler
   activeIndex?: number
 }
 

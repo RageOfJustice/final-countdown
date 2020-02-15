@@ -18,14 +18,13 @@ describe('Timer', () => {
     const StatefulTimer: React.FC = () => {
       const ref = useRef<TimerInstance>(null)
       useEffect(() => {
-        ref.current!.start()
+        ref.current!.start(5)
       })
       return (
         <Timer
           ref={ref}
           onHalfTimePassed={onHalfTimePassed}
           onTimeUp={onTimeUp}
-          initialSeconds={5}
         />
       )
     }

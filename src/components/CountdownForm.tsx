@@ -2,9 +2,12 @@ import React, { useState, useRef } from 'react'
 import { TextInput, Keyboard } from 'react-native'
 import styled from 'src/styled-components'
 
+export type CountdownFormMode = 'start' | 'stop'
+export type CountdownFormPressHandler = (minutes?: number) => void
+
 interface Props {
-  mode: 'start' | 'stop'
-  onPress?: (minutes?: number) => void
+  mode: CountdownFormMode
+  onPress?: CountdownFormPressHandler
 }
 
 const CountdownForm: React.FC<Props> = ({ mode, onPress }) => {
@@ -22,6 +25,7 @@ const CountdownForm: React.FC<Props> = ({ mode, onPress }) => {
     if (!isNaN(parsed)) {
       onPress?.(parsed)
     }
+    setValue('')
     inputRef.current?.clear()
     Keyboard.dismiss()
   }
