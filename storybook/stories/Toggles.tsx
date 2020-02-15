@@ -18,7 +18,7 @@ const StatefulToggles = () => {
   )
 }
 
-storiesOf('Toggles')
+storiesOf('Toggles', module)
   .add('Default', () => (
     <Toggles
       values={[

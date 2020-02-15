@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { TextInput } from 'react-native'
+import { TextInput, Keyboard } from 'react-native'
 import styled from 'src/styled-components'
 
 interface Props {
@@ -23,6 +23,7 @@ const CountdownForm: React.FC<Props> = ({ mode, onPress }) => {
       onPress?.(parsed)
     }
     inputRef.current?.clear()
+    Keyboard.dismiss()
   }
 
   return (

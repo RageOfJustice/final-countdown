@@ -37,9 +37,12 @@ describe('CountdownForm', () => {
 
   it('behaves right in stop mode', () => {
     const onPress = jest.fn()
-    const { getByTestId } = render(
+    const { getByTestId, getByDisplayValue } = render(
       <CountdownForm onPress={onPress} mode="stop" />,
     )
+
+    const input = getByDisplayValue('')
+    expect(input.getProp('editable')).toBeFalsy()
 
     const button = getByTestId('controlButton')
 
