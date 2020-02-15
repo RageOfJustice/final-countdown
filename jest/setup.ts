@@ -1,2 +1,3 @@
 import 'jest-styled-components'
-// тут будут моки библиотек
+
+jest.mock('react-native/Libraries/YellowBox/YellowBox')

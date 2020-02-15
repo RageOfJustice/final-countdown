@@ -27,6 +27,7 @@ interface Props {
   initialSeconds?: number
   speedMultiplier?: number
   onTimeUp?: () => void
+  onHalfTimePassed?: () => void
 }
 
 export interface TimerInstance {
@@ -53,8 +54,12 @@ function reducer(state: State, action: Action): State {
 }
 
 const Timer = forwardRef<TimerInstance, Props>(
-  ({ speedMultiplier = 1, initialSeconds = 0 }, ref) => {
+  (
+    { onTimeUp, onHalfTimePassed, speedMultiplier = 1, initialSeconds = 0 },
+    ref,
+  ) => {
     const intervalId = useRef<number>()
+    const halfTimeCalled = useRef(false)
     const [secondsLeft, dispatch] = useReducer(reducer, initialSeconds)
 
     const startTimer = useCallback(() => {
@@ -80,6 +85,7 @@ const Timer = forwardRef<TimerInstance, Props>(
 
     const stopTimer = useCallback(() => {
       pauseTimer()
+      halfTimeCalled.current = false
       dispatch({ type: 'reset' })
     }, [pauseTimer])
 
@@ -116,8 +122,17 @@ const Timer = forwardRef<TimerInstance, Props>(
     useEffect(() => {
       if (secondsLeft <= 0 && intervalId.current) {
         stopTimer()
+        onTimeUp?.()
+        return
       }
-    }, [secondsLeft])
+      if (
+        !halfTimeCalled.current &&
+        secondsLeft < Math.ceil(initialSeconds / 2)
+      ) {
+        halfTimeCalled.current = true
+        onHalfTimePassed?.()
+      }
+    }, [secondsLeft, onTimeUp, onHalfTimePassed, initialSeconds])
 
     return <TimeText>{formatTime(secondsLeft)}</TimeText>
   },

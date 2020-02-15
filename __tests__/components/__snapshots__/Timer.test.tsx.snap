@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer renders correctly 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#2d3436",
+        "fontSize": 80,
+        "textAlign": "center",
+      },
+    ]
+  }
+>
+  00:00
+</Text>
+`;
