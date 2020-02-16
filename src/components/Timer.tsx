@@ -53,6 +53,9 @@ function secondsLeftReducer(state: State, action: Action): State {
   }
 }
 
+// TODO: добавить выделение красным при secondsLeft < 20
+// TODO: добавить моргание при secondsLeft < 20
+
 const Timer = forwardRef<TimerInstance, Props>(
   ({ onTimeUp, onHalfTimePassed, speedMultiplier = 1 }, ref) => {
     const intervalId = useRef<number>()
