@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "typeRoots": ["./node_modules/@types", "./typings"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -16,8 +17,9 @@
     "baseUrl": "."
   },
   "include": [
+    "typings",
     "__tests__",
-    "jest/",
+    "jest",
     "src",
     "./index.js",
     "storybook",
