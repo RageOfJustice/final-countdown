@@ -18,6 +18,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* FinalCountdownTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FinalCountdownTests.m */; };
 		78042ED0ADD942F96A2EBA65 /* libPods-FinalCountdown-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AED80A41B0CCB738BCA6ED2 /* libPods-FinalCountdown-tvOS.a */; };
 		BD9AC63B158610F4F8B3C5B0 /* libPods-FinalCountdown-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 772D156BDE53D63CBEDAD2A4 /* libPods-FinalCountdown-tvOSTests.a */; };
+		D19808BD23F95A7200161CCE /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D19808BC23F95A7100161CCE /* alarm.mp3 */; };
 		DB1F6B234CF26EC6A1D49C64 /* libPods-FinalCountdownTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF9642F0E5331F57BA905A6 /* libPods-FinalCountdownTests.a */; };
 		E76B6EC81C476333CD0801BD /* libPods-FinalCountdown.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 105C9B87FE0E34E63979BA09 /* libPods-FinalCountdown.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		9AD3D9FF7E953F4E75FC56AE /* Pods-FinalCountdown-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalCountdown-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-FinalCountdown-tvOS/Pods-FinalCountdown-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C0F0B520E6700977EC9C57 /* Pods-FinalCountdown-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalCountdown-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-FinalCountdown-tvOSTests/Pods-FinalCountdown-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAA080722802C5DC02A7B79A /* Pods-FinalCountdownTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalCountdownTests.release.xcconfig"; path = "Target Support Files/Pods-FinalCountdownTests/Pods-FinalCountdownTests.release.xcconfig"; sourceTree = "<group>"; };
+		D19808BC23F95A7100161CCE /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm.mp3; path = FinalCountdown/alarm.mp3; sourceTree = "<group>"; };
 		D29CDD62E76D382CE7D9FC7C /* Pods-FinalCountdown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalCountdown.release.xcconfig"; path = "Target Support Files/Pods-FinalCountdown/Pods-FinalCountdown.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -127,6 +129,7 @@
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				D19808BC23F95A7100161CCE /* alarm.mp3 */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -194,7 +197,6 @@
 				92DAC6D7910CDAD27389A00A /* Pods-FinalCountdownTests.debug.xcconfig */,
 				CAA080722802C5DC02A7B79A /* Pods-FinalCountdownTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +341,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				D19808BD23F95A7200161CCE /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

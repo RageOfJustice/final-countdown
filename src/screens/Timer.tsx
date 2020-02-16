@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react'
+import React, { useRef, useState, useCallback, useEffect } from 'react'
 
 import styled from 'src/styled-components'
 import {
@@ -11,7 +11,7 @@ import {
   CountdownFormMode,
   CountdownFormPressHandler,
 } from 'src/components'
-import { icons, styles } from 'src/constants'
+import { icons, sounds, styles } from 'src/constants'
 
 const toggles: ToggleValue[] = [
   { title: '1X', value: 1 },
@@ -56,7 +56,9 @@ const TimerScreen: React.FC = () => {
   const handleTimeUp = useCallback(() => {
     setFormMode('start')
     setInfoText("Time's Up!")
+    sounds.ALARM.play()
   }, [])
+
   const onHalfTimePassed = useCallback(() => {
     setInfoText('More than halfway there!')
   }, [])
@@ -74,6 +76,14 @@ const TimerScreen: React.FC = () => {
       timerRef.current?.resume()
     }
   }, [formMode, timerMode])
+
+  useEffect(() => {
+    return () => {
+      if (sounds.ALARM.isPlaying()) {
+        sounds.ALARM.stop()
+      }
+    }
+  }, [])
 
   return (
     <Wrapper>
