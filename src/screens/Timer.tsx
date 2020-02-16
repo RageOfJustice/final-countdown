@@ -5,11 +5,12 @@ import styled from 'src/styled-components'
 import {
   Timer,
   Toggles,
-  TogglePressHandler,
+  TextBase,
   ToggleValue,
   TimerInstance,
   CountdownForm,
   CountdownFormMode,
+  TogglePressHandler,
   CountdownFormPressHandler,
 } from 'src/components'
 import { icons, sounds, styles } from 'src/constants'
@@ -126,7 +127,7 @@ const Wrapper = styled.SafeAreaView`
   justify-content: center;
 `
 
-const InfoText = styled.Text`
+const InfoText = styled(TextBase)`
   font-style: italic;
   text-align: center;
   padding: 10px 0;

@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react'
 import { Animated, TextProps } from 'react-native'
 
 import styled from 'src/styled-components'
+import TextBase from 'src/components/TextBase'
 
 interface Props extends TextProps {
   isBlinking?: boolean
@@ -62,13 +63,13 @@ const TimerText: React.FC<Props> = ({ showWarn, isBlinking, children }) => {
   }, [])
 
   return (
-    <Text showWarn={showWarn} op={opacity}>
+    <Text as={Animated.Text} showWarn={showWarn} op={opacity}>
       {children}
     </Text>
   )
 }
 
-const Text = styled(Animated.Text)<{ op: number; showWarn?: boolean }>`
+const Text = styled(TextBase)<{ op: number; showWarn?: boolean }>`
   font-size: 80px;
   text-align: center;
   color: ${({ theme, showWarn }) =>

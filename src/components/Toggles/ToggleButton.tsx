@@ -1,5 +1,7 @@
 import React from 'react'
+
 import styled from 'src/styled-components'
+import TextBase from 'src/components/TextBase'
 
 interface Props {
   isActive?: boolean
@@ -23,7 +25,7 @@ const Wrapper = styled.TouchableOpacity<{ isActive?: boolean }>`
   justify-content: center;
 `
 
-const Text = styled.Text<{ isActive?: boolean }>`
+const Text = styled(TextBase)<{ isActive?: boolean }>`
   color: ${({ isActive, theme }) =>
     isActive ? theme.colors.white : theme.colors.black};
   font-size: 14px;

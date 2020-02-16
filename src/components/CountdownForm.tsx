@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react'
 import { TextInput, Keyboard } from 'react-native'
+
 import styled from 'src/styled-components'
+import TextBase from 'src/components/TextBase'
 
 export type CountdownFormMode = 'start' | 'stop'
 export type CountdownFormPressHandler = (minutes?: number) => void
@@ -40,6 +42,7 @@ const CountdownForm: React.FC<Props> = ({ mode, onPress }) => {
         onChangeText={setValue}
         placeholder="Minutes"
         keyboardType="decimal-pad"
+        onSubmitEditing={handlePress}
       />
       <ButtonWrapper
         disabled={isInStartState && !value}
@@ -58,7 +61,7 @@ const Wrapper = styled.View`
   justify-content: center;
 `
 
-const Text = styled.Text`
+const Text = styled(TextBase)`
   color: ${({ theme }) => theme.colors.black};
 `
 
@@ -82,7 +85,7 @@ const ButtonWrapper = styled.TouchableOpacity`
   background-color: ${({ theme }) => theme.colors.cyan};
 `
 
-const ButtonText = styled.Text`
+const ButtonText = styled(TextBase)`
   color: ${({ theme }) => theme.colors.white};
 `
 
