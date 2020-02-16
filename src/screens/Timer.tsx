@@ -19,7 +19,6 @@ const toggles: ToggleValue[] = [
   { title: '1X', value: 1 },
   { title: '1.5X', value: 1.5 },
   { title: '2X', value: 2 },
-  { title: 'fast test', value: 10 },
 ]
 
 type TimerMode = 'play' | 'pause'
@@ -58,7 +57,7 @@ const TimerScreen: React.FC = () => {
   const handleTimeUp = useCallback(() => {
     setFormMode('start')
     setInfoText("Time's Up!")
-    Vibration.vibrate(2000)
+    Vibration.vibrate(1000)
     sounds.ALARM.play()
   }, [])
 
