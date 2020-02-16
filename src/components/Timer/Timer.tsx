@@ -43,6 +43,9 @@ function secondsLeftReducer(state: State, action: Action): State {
   }
 }
 
+const WARN_THRESHOLD = 20
+const BLINK_THRESHOLD = 10
+
 const Timer = forwardRef<TimerInstance, Props>(
   ({ onTimeUp, onHalfTimePassed, speedMultiplier = 1 }, ref) => {
     const intervalId = useRef<number>()
@@ -53,19 +56,17 @@ const Timer = forwardRef<TimerInstance, Props>(
     const [secondsLeft, dispatch] = useReducer(secondsLeftReducer, 0)
 
     const startTimer = useCallback(() => {
-      if (!intervalId.current) {
-        let interval
-        if (speedMultiplier === 0) {
-          interval = 1000
-        } else {
-          interval = Math.trunc(1000 / speedMultiplier)
-        }
-
-        BackgroundTimer.start()
-        intervalId.current = BackgroundTimer.setInterval(() => {
-          dispatch({ type: 'decrease' })
-        }, interval)
+      if (intervalId.current) {
+        return
       }
+
+      const interval =
+        speedMultiplier === 0 ? 1000 : Math.trunc(1000 / speedMultiplier)
+
+      BackgroundTimer.start()
+      intervalId.current = BackgroundTimer.setInterval(() => {
+        dispatch({ type: 'decrease' })
+      }, interval)
     }, [speedMultiplier])
 
     const pauseTimer = useCallback(() => {
@@ -99,20 +100,22 @@ const Timer = forwardRef<TimerInstance, Props>(
     )
 
     useEffect(() => {
-      if (intervalId.current) {
-        pauseTimer()
-        startTimer()
+      if (!intervalId.current) {
+        return
       }
+
+      pauseTimer()
+      startTimer()
     }, [speedMultiplier])
 
     useEffect(() => {
       if (!intervalId.current) {
         return
       }
-      if (secondsLeft <= 20) {
+      if (secondsLeft <= WARN_THRESHOLD) {
         setShowWarn(true)
       }
-      if (secondsLeft <= 10) {
+      if (secondsLeft <= BLINK_THRESHOLD) {
         setBlinking(true)
       }
       if (secondsLeft <= 0) {
@@ -120,10 +123,10 @@ const Timer = forwardRef<TimerInstance, Props>(
         stopTimer()
         return
       }
-      if (
-        !halfTimeCalled.current &&
+      const isPassedMoreThenHalf =
         secondsLeft < Math.ceil(initialSeconds.current / 2)
-      ) {
+
+      if (!halfTimeCalled.current && isPassedMoreThenHalf) {
         halfTimeCalled.current = true
         onHalfTimePassed?.()
       }
