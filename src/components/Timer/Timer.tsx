@@ -1,13 +1,15 @@
 import React, {
   memo,
   useRef,
+  useState,
   useEffect,
   forwardRef,
   useReducer,
   useCallback,
   useImperativeHandle,
 } from 'react'
-import styled from 'src/styled-components'
+
+import TimerText from './TimerText'
 
 // TODO: вынести в helpers/formatTime и протестировать
 const formatTime = (seconds: number): string => {
@@ -61,6 +63,8 @@ const Timer = forwardRef<TimerInstance, Props>(
     const intervalId = useRef<number>()
     const halfTimeCalled = useRef(false)
     const initialSeconds = useRef(0)
+    const [isBlinking, setBlinking] = useState(false)
+    const [showWarn, setShowWarn] = useState(false)
     const [secondsLeft, dispatch] = useReducer(secondsLeftReducer, 0)
 
     const startTimer = useCallback(() => {
@@ -87,6 +91,8 @@ const Timer = forwardRef<TimerInstance, Props>(
       pauseTimer()
       halfTimeCalled.current = false
       initialSeconds.current = 0
+      setBlinking(false)
+      setShowWarn(false)
       dispatch({ type: 'reset' })
     }, [pauseTimer])
 
@@ -116,6 +122,12 @@ const Timer = forwardRef<TimerInstance, Props>(
       if (!intervalId.current) {
         return
       }
+      if (secondsLeft <= 20) {
+        setShowWarn(true)
+      }
+      if (secondsLeft <= 10) {
+        setBlinking(true)
+      }
       if (secondsLeft <= 0) {
         stopTimer()
         onTimeUp?.()
@@ -136,14 +148,12 @@ const Timer = forwardRef<TimerInstance, Props>(
       }
     }, [])
 
-    return <TimeText>{formatTime(secondsLeft)}</TimeText>
+    return (
+      <TimerText showWarn={showWarn} isBlinking={isBlinking}>
+        {formatTime(secondsLeft)}
+      </TimerText>
+    )
   },
 )
-
-const TimeText = styled.Text`
-  font-size: 80px;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.black};
-`
 
 export default memo(Timer)

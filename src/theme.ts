@@ -7,6 +7,7 @@ const theme: ITheme = {
     darkGrey: '#636e72',
     lightGrey: '#b2bec3',
     white: '#FFFFFF',
+    red: '#d63031',
   },
 }
 

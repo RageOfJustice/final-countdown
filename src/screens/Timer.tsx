@@ -17,6 +17,7 @@ const toggles: ToggleValue[] = [
   { title: '1X', value: 1 },
   { title: '1.5X', value: 1.5 },
   { title: '2X', value: 2 },
+  { title: 'fast test', value: 10 },
 ]
 
 type TimerMode = 'play' | 'pause'

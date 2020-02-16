@@ -2,16 +2,37 @@
 
 exports[`Timer renders correctly 1`] = `
 <Text
+  op={1}
+  showWarn={false}
   style={
     Array [
       Object {
         "color": "#2d3436",
         "fontSize": 80,
+        "opacity": 1,
         "textAlign": "center",
       },
     ]
   }
 >
   00:00
+</Text>
+`;
+
+exports[`TimerText renders correctly 1`] = `
+<Text
+  op={1}
+  style={
+    Array [
+      Object {
+        "color": "#2d3436",
+        "fontSize": 80,
+        "opacity": 1,
+        "textAlign": "center",
+      },
+    ]
+  }
+>
+  text
 </Text>
 `;

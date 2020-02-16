@@ -4,6 +4,7 @@ export interface ThemeColors {
   cyan: string
   black: string
   white: string
+  red: string
   darkGrey: string
   lightGrey: string
 }
