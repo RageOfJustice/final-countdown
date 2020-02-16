@@ -11,20 +11,7 @@ import React, {
 import BackgroundTimer from 'react-native-background-timer'
 
 import TimerText from './TimerText'
-
-// TODO: вынести в helpers/formatTime и протестировать
-const formatTime = (seconds: number): string => {
-  if (seconds <= 0) {
-    return '00:00'
-  }
-  const minutes = Math.trunc(seconds / 60)
-  const restSeconds = Math.trunc(seconds % 60)
-
-  const formattedMinutes = `${minutes < 10 ? '0' : ''}${minutes}`
-  const formattedSeconds = `${restSeconds < 10 ? '0' : ''}${restSeconds}`
-
-  return `${formattedMinutes}:${formattedSeconds}`
-}
+import { formatTime } from 'src/utils'
 
 interface Props {
   speedMultiplier?: number
@@ -144,7 +131,7 @@ const Timer = forwardRef<TimerInstance, Props>(
 
     useEffect(() => {
       return () => {
-        clearInterval(intervalId.current!)
+        pauseTimer()
       }
     }, [])
 

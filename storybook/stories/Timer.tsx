@@ -12,11 +12,7 @@ const ControlledTimer: React.FC = () => {
   const timerRef = useRef<TimerInstance>(null)
   return (
     <>
-      <Timer
-        ref={timerRef}
-        speedMultiplier={speed}
-        initialSeconds={startTime * 60}
-      />
+      <Timer ref={timerRef} speedMultiplier={speed} />
       <Text>Speed</Text>
       <Input
         keyboardType="decimal-pad"
@@ -39,7 +35,7 @@ const ControlledTimer: React.FC = () => {
         title="toggle timer"
         onPress={() => {
           if (isPaused) {
-            timerRef.current?.start()
+            timerRef.current?.start(startTime * 60)
           } else {
             timerRef.current?.pause()
           }

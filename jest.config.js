@@ -18,7 +18,7 @@ module.exports = {
     '^src/(.*)$': '<rootDir>/src/$1',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@react-native-community|react-native)/)',
+    'node_modules/(?!(react-native-background-timer|@react-native-community|react-native)/)',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
