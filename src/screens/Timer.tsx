@@ -16,11 +16,14 @@ import { icons, styles } from 'src/constants'
 const toggles: ToggleValue[] = [
   { title: '1X', value: 1 },
   { title: '1.5X', value: 1.5 },
-  { title: '2X', value: 255 },
+  { title: '2X', value: 2 },
 ]
+
+type TimerMode = 'play' | 'pause'
 
 const TimerScreen: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [timerMode, setTimerMode] = useState<TimerMode>('pause')
   const [formMode, setFormMode] = useState<CountdownFormMode>('start')
   const [speedMultiplier, setSpeedMultiplier] = useState(1)
   const [infoText, setInfoText] = useState<string>()
@@ -57,6 +60,20 @@ const TimerScreen: React.FC = () => {
     setInfoText('More than halfway there!')
   }, [])
 
+  const playOrPauseTimer = useCallback(() => {
+    if (formMode === 'start') {
+      return
+    }
+
+    if (timerMode === 'pause') {
+      setTimerMode('play')
+      timerRef.current?.pause()
+    } else {
+      setTimerMode('pause')
+      timerRef.current?.resume()
+    }
+  }, [formMode, timerMode])
+
   return (
     <Wrapper>
       <CountdownForm onPress={startOrStopTimer} mode={formMode} />
@@ -73,9 +90,11 @@ const TimerScreen: React.FC = () => {
           speedMultiplier={speedMultiplier}
         />
         <Stretcher>
-          <ControlWrapper>
-            <ControlIcon mode={'play'} />
-          </ControlWrapper>
+          {formMode === 'stop' && (
+            <ControlWrapper onPress={playOrPauseTimer}>
+              <ControlIcon mode={timerMode} />
+            </ControlWrapper>
+          )}
         </Stretcher>
       </TimerWrapper>
 
@@ -114,13 +133,11 @@ const ControlWrapper = styled.TouchableOpacity.attrs(() => ({
 }))`
   padding: 12px;
   align-self: flex-start;
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 `
 
-interface ControlIconProps {
-  mode: 'play' | 'pause'
-}
-const ControlIcon = styled.Image.attrs(({ mode }: ControlIconProps) => ({
+const ControlIcon = styled.Image.attrs(({ mode }: { mode: TimerMode }) => ({
   source: mode === 'play' ? icons.PLAY_ICON : icons.PAUSE_ICON,
-}))<ControlIconProps>``
+}))<{ mode: TimerMode }>``
 
 export default TimerScreen

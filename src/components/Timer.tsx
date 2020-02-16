@@ -31,6 +31,7 @@ interface Props {
 
 export interface TimerInstance {
   start: (seconds: number) => void
+  resume: () => void
   pause: () => void
   stop: () => void
 }
@@ -94,6 +95,7 @@ const Timer = forwardRef<TimerInstance, Props>(
           initialSeconds.current = seconds
           startTimer()
         },
+        resume: startTimer,
         pause: pauseTimer,
         stop: stopTimer,
       }),
