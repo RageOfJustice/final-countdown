@@ -8,6 +8,7 @@ import React, {
   useCallback,
   useImperativeHandle,
 } from 'react'
+import BackgroundTimer from 'react-native-background-timer'
 
 import TimerText from './TimerText'
 
@@ -55,9 +56,6 @@ function secondsLeftReducer(state: State, action: Action): State {
   }
 }
 
-// TODO: добавить выделение красным при secondsLeft < 20
-// TODO: добавить моргание при secondsLeft < 20
-
 const Timer = forwardRef<TimerInstance, Props>(
   ({ onTimeUp, onHalfTimePassed, speedMultiplier = 1 }, ref) => {
     const intervalId = useRef<number>()
@@ -76,14 +74,16 @@ const Timer = forwardRef<TimerInstance, Props>(
           interval = Math.trunc(1000 / speedMultiplier)
         }
 
-        intervalId.current = setInterval(() => {
+        BackgroundTimer.start()
+        intervalId.current = BackgroundTimer.setInterval(() => {
           dispatch({ type: 'decrease' })
         }, interval)
       }
     }, [speedMultiplier])
 
     const pauseTimer = useCallback(() => {
-      clearInterval(intervalId.current!)
+      BackgroundTimer.clearInterval(intervalId.current!)
+      BackgroundTimer.stop()
       intervalId.current = undefined
     }, [])
 
@@ -129,8 +129,8 @@ const Timer = forwardRef<TimerInstance, Props>(
         setBlinking(true)
       }
       if (secondsLeft <= 0) {
-        stopTimer()
         onTimeUp?.()
+        stopTimer()
         return
       }
       if (

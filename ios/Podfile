@@ -34,20 +34,6 @@ target 'FinalCountdown' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'FinalCountdownTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
   use_native_modules!
 end
 
-target 'FinalCountdown-tvOS' do
-  # Pods for FinalCountdown-tvOS
-
-  target 'FinalCountdown-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end

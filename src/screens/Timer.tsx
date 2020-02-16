@@ -1,4 +1,5 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react'
+import { Vibration } from 'react-native'
 
 import styled from 'src/styled-components'
 import {
@@ -56,6 +57,7 @@ const TimerScreen: React.FC = () => {
   const handleTimeUp = useCallback(() => {
     setFormMode('start')
     setInfoText("Time's Up!")
+    Vibration.vibrate(2000)
     sounds.ALARM.play()
   }, [])
 
